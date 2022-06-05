@@ -42,4 +42,6 @@ In case of needed, you will have to add the reference System.Net.Http:
 
 ![image](https://user-images.githubusercontent.com/494355/172023803-470a3c58-7928-4956-9e2d-6447703d402a.png)
 
+Ready, now you can assign it to you sub's action in streamer.bot or add it as sub-action!
+
 
