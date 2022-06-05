@@ -3,7 +3,7 @@ Print, create an image and post it on Discord, for streamer.bot
 
 It has been tested on Windows, supports thermal printers (tickets).
 
-You will have to add the reference System.Net.Http:
+In case of needed, you will have to add the reference System.Net.Http:
 
 - Double click on Execute Code (Print(EN))
 
