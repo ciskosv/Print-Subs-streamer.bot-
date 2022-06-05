@@ -43,7 +43,7 @@ public class CPHInline
 
 		if(args["postToDiscord"].ToString().ToLower()=="true"){
 			string discordWebhookURL = args["discordWebhook"].ToString();
-			string FileName = "lastSub.jpg";
+			string FileName = Globals.myTempFile;
 			
 			//Taken from StreamUP Tools - OBSCord by Andilippi
 			string displayName = args["user"].ToString();
