@@ -5,6 +5,8 @@ Ha sido probado en Windows, soporta impresores térmicos (tickets.
 
 # Setup
 
+En caso de ser necesario, deberás agregar la referencia al archivo System.Net.Http.dll
+
 - Doble click en "Execute Code (Print(ES))"
 
 ![image](https://user-images.githubusercontent.com/494355/172022437-0538e020-560b-4ba3-b1f6-19f0165aa503.png)
@@ -42,3 +44,4 @@ Ha sido probado en Windows, soporta impresores térmicos (tickets.
 
 ![image](https://user-images.githubusercontent.com/494355/172023803-470a3c58-7928-4956-9e2d-6447703d402a.png)
 
+Y listo, ya puedes asignar la acción a los eventos Subs de tu streamer.bot o agregarlo como una sub-acción a tu acción actual!
