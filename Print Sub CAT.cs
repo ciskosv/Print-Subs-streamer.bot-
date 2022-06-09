@@ -9,6 +9,8 @@ using System.Drawing.Drawing2D;
 //for discord option
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
+using System.Text;
 using Newtonsoft.Json;
 
 public class Globals
@@ -41,13 +43,13 @@ public class CPHInline
 
 		if(args["postToDiscord"].ToString().ToLower()=="true"){
 			string discordWebhookURL = args["discordWebhook"].ToString();
-			string FileName = "lastSub.jpg";
+			string FileName = Globals.myTempFile;
 			
 			//Taken from StreamUP Tools - OBSCord by Andilippi
 			string displayName = args["user"].ToString();
 			string userName = args["userName"].ToString();
 			string userProfilePicture = args["targetUserProfileImageUrl"].ToString();
-			string discordMessage = JsonConvert.SerializeObject(new {embeds = new[] { new { title = "Nueva suscripción!", color = 7009535, author = new { name = $"~ {displayName}", url = $"https://twitch.tv/{userName}", icon_url = userProfilePicture } } } });
+			string discordMessage = JsonConvert.SerializeObject(new {embeds = new[] { new { title = "Nova subscripció!", color = 7009535, author = new { name = $"~ {displayName}", url = $"https://twitch.tv/{userName}", icon_url = userProfilePicture } } } });
 			// Open and Read the created file by discord and make it into a BLOB
 			FileStream fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
 			BinaryReader reader = new BinaryReader(fs);
@@ -101,11 +103,11 @@ public class CPHInline
 		switch(subtype) 
 		{
 		  case "TwitchSub":
-			title = "SUSCRIPCION";
+			title = "SUBSCRIPCIÓ";
 			photo = resizeImage(photo, new Size(200, 200));
 			break;
 		  case "TwitchReSub":
-			title = "RE-SUSCRIPCION";
+			title = "RE-SUBSCRIPCIÓ";
 			//Check for plurals
 			if(Convert.ToInt32(args["cumulative"])>1)
 			{
@@ -121,7 +123,7 @@ public class CPHInline
 			photo = resizeImage(photo, new Size(200, 200));
 			break;
 		  case "TwitchGiftSub":
-			title = "SUSCRIPCIÓ REGALADA";
+			title = "SUBSCRIPCIÓ REGALADA";
 				if((int)args["totalSubsGifted"]>0){ 
 					total = " (Total de: " + args["totalSubsGifted"].ToString() + ")";
 				}
@@ -137,16 +139,16 @@ public class CPHInline
 			photo = resizeImage(photo, new Size(125, 125));
 			break;
 		  case "TwitchGiftBomb":
-			title = "BOMBA DE SUSCRIPCIONS";
+			title = "BOMBA DE SUBSCRIPCIONS";
 				if((int)args["totalGifts"]>0){ 
 					total = " (Total de: " + args["totalGifts"].ToString()+ ")";
 				}
 			line[3] = "REGALADOR" + total;
 
 			if(Convert.ToInt32(args["gifts"])>1){
-				line[5] = "Bomba de " + args["gifts"].ToString() + " suscripciones";
+				line[5] = "Bomba de " + args["gifts"].ToString() + " subscripcions";
 			}else{
-				line[5] = "Bomba de " + args["gifts"].ToString() + " suscripción";
+				line[5] = "Bomba de " + args["gifts"].ToString() + " subscripció";
 			}
 
 			photo = resizeImage(photo, new Size(165, 165));
@@ -159,7 +161,7 @@ public class CPHInline
 		line[4] = user;
 
 		//Comentar la siguiente linea si no se quiere traducir
-		//tier = tier.Replace("tier", "Nivel");
+		// tier = tier.Replace("tier", "Nivel");
 
 		line[8] = tier;
 
