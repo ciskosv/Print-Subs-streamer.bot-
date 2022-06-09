@@ -139,16 +139,16 @@ public class CPHInline
 			photo = resizeImage(photo, new Size(125, 125));
 			break;
 		  case "TwitchGiftBomb":
-			title = "BOMBA DE SUBSCRIPCIONS";
+			title = "PLUJA DE SUBSCRIPCIONS";
 				if((int)args["totalGifts"]>0){ 
 					total = " (Total de: " + args["totalGifts"].ToString()+ ")";
 				}
 			line[3] = "REGALADOR" + total;
 
 			if(Convert.ToInt32(args["gifts"])>1){
-				line[5] = "Bomba de " + args["gifts"].ToString() + " subscripcions";
+				line[5] = "Pluja de " + args["gifts"].ToString() + " subscripcions";
 			}else{
-				line[5] = "Bomba de " + args["gifts"].ToString() + " subscripció";
+				line[5] = "Pluja de " + args["gifts"].ToString() + " subscripció";
 			}
 
 			photo = resizeImage(photo, new Size(165, 165));
