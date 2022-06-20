@@ -14,7 +14,8 @@ using Newtonsoft.Json;
 public class Globals
 {
 	public static String ts = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-	public static String myTempFile = Path.Combine(Path.GetTempPath(), "lastSub" + ts + ".jpg");
+	public static System.Random rand = new Random();
+	public static String myTempFile = Path.Combine(Path.GetTempPath(), "lastSub_"+ rand.Next().ToString() + ts + ".jpg");
 }
 
 public class CPHInline
